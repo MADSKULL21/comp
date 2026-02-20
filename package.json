@@ -1,0 +1,21 @@
+{
+  "name": "legions-replica",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3001",
+    "build": "next build",
+    "start": "next start --port 3001",
+    "scrape:gitbutler": "node scripts/scrape-gitbutler.mjs",
+    "scrape:cozzy": "node scripts/scrape-cozzy.mjs",
+    "scrape:legions": "node scripts/scrape-legions.mjs"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "three": "^0.183.1"
+  }
+}
