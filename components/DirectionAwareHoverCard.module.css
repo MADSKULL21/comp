@@ -1,0 +1,113 @@
+.card {
+  position: relative;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: transparent;
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: 24rem;
+    height: 24rem;
+  }
+}
+
+.imageLayer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #f9fafb;
+  transition: transform 0.2s ease-out;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.15);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.content {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 40;
+  color: #fff;
+  opacity: 0;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+
+.card:hover .overlay,
+.card:focus-within .overlay {
+  opacity: 1;
+}
+
+.card:hover .content,
+.card:focus-within .content {
+  opacity: 1;
+}
+
+.top:hover .imageLayer,
+.top:focus-within .imageLayer {
+  transform: translateY(20px);
+}
+
+.bottom:hover .imageLayer,
+.bottom:focus-within .imageLayer {
+  transform: translateY(-20px);
+}
+
+.left:hover .imageLayer,
+.left:focus-within .imageLayer {
+  transform: translateX(20px);
+}
+
+.right:hover .imageLayer,
+.right:focus-within .imageLayer {
+  transform: translateX(-20px);
+}
+
+.top:hover .content,
+.top:focus-within .content {
+  transform: translateY(-20px);
+}
+
+.bottom:hover .content,
+.bottom:focus-within .content {
+  transform: translateY(2px);
+}
+
+.left:hover .content,
+.left:focus-within .content {
+  transform: translateX(-2px);
+}
+
+.right:hover .content,
+.right:focus-within .content {
+  transform: translateX(20px);
+}

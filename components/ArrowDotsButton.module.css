@@ -1,0 +1,135 @@
+.button {
+  --elastic-ease-out: linear(
+    0,
+    0.5737 7.6%,
+    0.8382 11.87%,
+    0.9463 14.19%,
+    1.0292 16.54%,
+    1.0886 18.97%,
+    1.1258 21.53%,
+    1.137 22.97%,
+    1.1424 24.48%,
+    1.1423 26.1%,
+    1.1366 27.86%,
+    1.1165 31.01%,
+    1.0507 38.62%,
+    1.0219 42.57%,
+    0.9995 46.99%,
+    0.9872 51.63%,
+    0.9842 58.77%,
+    1.0011 81.26%,
+    1
+  );
+  --smooth-ease: cubic-bezier(0.32, 0.72, 0, 1);
+  --color-ease: cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  color: #f9f4eb;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  user-select: none;
+  transform-style: preserve-3d;
+  font-size: 0.875rem;
+  line-height: 1em;
+  text-decoration: none;
+  display: grid;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.45s var(--elastic-ease-out);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.button:active {
+  transform: scaleX(0.955) scaleY(0.954);
+}
+
+.bg {
+  background-color: #000;
+  border-radius: 0.3125rem;
+  grid-area: 1 / 1;
+  overflow: clip;
+  transition: background-color 0.2s var(--color-ease);
+}
+
+.inner {
+  grid-gap: 0.625rem;
+  grid-area: 1 / 1;
+  padding: 0.875rem 0.625rem 0.875rem 0.75rem;
+  display: grid;
+  translate: 0;
+}
+
+.text {
+  grid-area: 1 / 1;
+  transform-origin: 100%;
+  transition: scale 0.45s var(--smooth-ease);
+}
+
+.inner::before {
+  content: attr(data-text);
+  pointer-events: none;
+  transform-origin: 0;
+  grid-area: 1 / 1;
+  scale: 0;
+  transition: scale 0.45s var(--smooth-ease);
+}
+
+.iconWrap {
+  grid-column-gap: 0.125rem;
+  grid-row-gap: 0.125rem;
+  grid-row: 1;
+  display: flex;
+}
+
+.icon {
+  grid-column-gap: 0.0625rem;
+  grid-row-gap: 0.0625rem;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-end;
+  display: flex;
+}
+
+.dot {
+  margin-right: calc(var(--index) * 0.1875rem);
+  background-color: #f9f4eb;
+  border-radius: 0.0625rem;
+  width: 0.125rem;
+  height: 0.125rem;
+  display: block;
+  transition: scale 0.4s var(--smooth-ease), translate 0.45s var(--smooth-ease);
+}
+
+.icon:first-child .dot {
+  scale: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button:is(:hover, :focus-visible) .text {
+    scale: 0;
+  }
+
+  .button:is(:hover, :focus-visible) .inner::before {
+    scale: 1;
+  }
+
+  .button:is(:hover, :focus-visible) .icon:last-child .dot {
+    transition-delay: calc(var(--index) * 40ms);
+    translate: 0.5625rem;
+    scale: 0;
+  }
+
+  .button:is(:hover, :focus-visible) .icon:nth-child(-n + 3) .dot {
+    transition-delay: calc((var(--index) * 40ms) + (var(--index-parent) * 70ms));
+    translate: 0.5625rem;
+    scale: 1;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .button:active .bg {
+    background-color: #4d4d4d;
+    transition-duration: 0s;
+  }
+}

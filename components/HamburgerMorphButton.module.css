@@ -1,0 +1,53 @@
+.button {
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background: #fff;
+  color: #111827;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.button:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+}
+
+.icon {
+  pointer-events: none;
+}
+
+.lineTop,
+.lineMiddle,
+.lineBottom {
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(0.5, 0.85, 0.25, 1.1);
+}
+
+.lineMiddle {
+  transition-timing-function: cubic-bezier(0.5, 0.85, 0.25, 1.8);
+}
+
+.lineTop {
+  transform: translateY(-7px);
+}
+
+.lineBottom {
+  transform: translateY(7px);
+}
+
+.expanded .lineTop {
+  transform: rotate(315deg);
+}
+
+.expanded .lineMiddle {
+  transform: rotate(45deg);
+}
+
+.expanded .lineBottom {
+  transform: rotate(135deg);
+}
